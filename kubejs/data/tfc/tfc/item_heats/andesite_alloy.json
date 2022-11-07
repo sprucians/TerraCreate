@@ -1,0 +1,8 @@
+{
+    "ingredient": {
+        "item": "create:andesite_alloy"
+    },
+    "heat_capacity": 0.5,
+    "forging_temperature": 500.0,
+    "welding_temperature": 600.0
+}
