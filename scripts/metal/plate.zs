@@ -29,6 +29,7 @@ for item in <tag:items:forge:plates>.asIIngredient().items{
 	<recipetype:minecraft:crafting>.remove(item);
 }
 
+//이머시브/크리에이트 프레스 금속판
 for metalname in metalList{
 	var ingot = BracketHandlers.getItem("tfc:metal/ingot/"+metalname);
 	var sheet = BracketHandlers.getItem("tfc:metal/sheet/"+metalname);
