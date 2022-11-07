@@ -1,0 +1,14 @@
+name = "ProbeJS"
+filename = "probejs-4.0.0-forge.jar"
+side = "both"
+
+[download]
+mode = "metadata:curseforge"
+url = ""
+hash-format = "sha1"
+hash = "94eb676c2643d1fa3a07fdb43aa0c96b1182cc09"
+
+[update]
+[update.curseforge]
+file-id = 4051719
+project-id = 585406

@@ -1,0 +1,14 @@
+name = "TFC Homestead"
+filename = "tfchomestead-0.1.2-1.18.2.jar"
+side = "both"
+
+[download]
+mode = "metadata:curseforge"
+url = ""
+hash-format = "sha1"
+hash = "c10db07c0d7971a64239581ad38193c0bc921656"
+
+[update]
+[update.curseforge]
+file-id = 4001552
+project-id = 405263
