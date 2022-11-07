@@ -1,10 +1,11 @@
 {
+	"__comment__": "This file was automatically created by mcresources",
 	"ingredient": {
 		"item": "farmersdelight:minced_beef"
 	},
-	"category": "fruit",
-	"hunger": 4,
-	"saturation": 0.2,
-	"decay_modifier": 1,
-	"fruit": 5
+	"category": "meat",
+	"hunger": 2,
+	"saturation": 0,
+	"decay_modifier": 2.3,
+	"protein": 1
 }
