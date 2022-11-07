@@ -1,11 +1,11 @@
 onEvent('recipes', event => {
     event.custom({
-        "type" : "tfc:pot",
+        "type": "tfc:pot",
         "ingredients": [
             {
                 "item": "tfc:stick_bunch"
             },
-          ],
+        ],
         "fluid_ingredient": {
             "ingredient": "tfc:salt_water",
             "amount": 250

@@ -84,7 +84,7 @@ let meatdb = [
 ]
 
 onEvent('recipes', e => {
-    for (let meat of meatdb){
+    meatdb.forEach(meat => {
         let raw = meat[0]
         let cook = meat[1]
         let raw_cut = meat[2]
@@ -98,7 +98,7 @@ onEvent('recipes', e => {
         registerFood(cook_cut, cutFoodData(readFood(cook)))
 
         registerHeat(raw_cut)
-    }
+    })
 })
 
 onEvent('item.tags', event => {
@@ -107,5 +107,8 @@ onEvent('item.tags', event => {
 
 	// Get the #forge:cobblestone tag collection and remove Mossy Cobblestone from it
 	// event.get('forge:cobblestone').remove('minecraft:mossy_cobblestone')
-    event.get('')
+    meatdb.forEach(meat => {
+        Item.of(meat[0]).getTags().forEach(t => event.get(t).add(meat[2]))
+        Item.of(meat[1]).getTags().forEach(t => event.get(t).add(meat[3]))
+    })
 })
