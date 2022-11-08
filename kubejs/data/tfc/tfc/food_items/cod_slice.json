@@ -1,0 +1,11 @@
+{
+	"__comment__": "This file was automatically created by mcresources",
+	"ingredient": {
+		"item": "farmersdelight:cod_slice"
+	},
+	"category": "meat",
+	"hunger": 2,
+	"saturation": 0,
+	"decay_modifier": 3.3,
+	"protein": 0.5
+}

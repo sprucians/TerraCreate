@@ -1,0 +1,11 @@
+{
+	"__comment__": "This file was automatically created by mcresources",
+	"ingredient": {
+		"item": "farmersdelight:cooked_salmon_slice"
+	},
+	"category": "cooked_meat",
+	"hunger": 2,
+	"saturation": 0.5,
+	"decay_modifier": 2.55,
+	"protein": 1
+}

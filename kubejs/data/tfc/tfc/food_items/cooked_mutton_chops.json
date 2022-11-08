@@ -1,0 +1,11 @@
+{
+	"__comment__": "This file was automatically created by mcresources",
+	"ingredient": {
+		"item": "farmersdelight:cooked_mutton_chops"
+	},
+	"category": "cooked_meat",
+	"hunger": 2,
+	"saturation": 1,
+	"decay_modifier": 2.55,
+	"protein": 1.25
+}
