@@ -1,6 +1,7 @@
 *
 
 !.git/*
+!defaultconfigs
 !config/*
 !kubejs/assets/*
 !kubejs/config/*
