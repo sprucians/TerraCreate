@@ -1,10 +1,10 @@
 //
 //ex : beef -> minced beef -> beef_patty
 
-function generateCutRecipe(event, raw, cut, amount, add) {
+function generateCutRecipe(e,raw, cut, amount, add) {
     add = add === undefined ? 'minecraft:bone_meal' : add
     amount = amount === undefined ? 2 : amount
-    event.custom({
+    e.custom({
         "type": "tfc:extra_products_shapeless_crafting",
         "extra_products": [Item.of(add)],
         "recipe": {
@@ -32,8 +32,8 @@ function generateCutRecipe(event, raw, cut, amount, add) {
     })
 }
 
-function generateGrillRecipe(event, cut, cook) {
-    event.custom({
+function generateGrillRecipe(e,cut, cook) {
+    e.custom({
         "type": "tfc:heating",
         "ingredient": {
             "type": "tfc:not_rotten",
@@ -84,15 +84,12 @@ let meatdb = [
 ]
 
 onEvent('recipes', e => {
-    meatdb.forEach(meat => {
-        let raw = meat[0]
-        let cook = meat[1]
-        let raw_cut = meat[2]
-        let cook_cut = meat[3]
+    meatdb.forEach(m => {
+        var [raw,cook,raw_cut,cook_cut] = m
         
-        generateCutRecipe(e, raw, raw_cut)
-        generateCutRecipe(e, cook, cook_cut)
-        generateGrillRecipe(e, raw_cut, cook_cut)
+        generateCutRecipe(e,raw, raw_cut)   
+        generateCutRecipe(e,cook, cook_cut)
+        generateGrillRecipe(e,raw_cut, cook_cut)
 
         registerFood(raw_cut, cutFoodData(readFood(raw)))
         registerFood(cook_cut, cutFoodData(readFood(cook)))
@@ -108,7 +105,8 @@ onEvent('item.tags', event => {
 	// Get the #forge:cobblestone tag collection and remove Mossy Cobblestone from it
 	// event.get('forge:cobblestone').remove('minecraft:mossy_cobblestone')
     meatdb.forEach(meat => {
-        Item.of(meat[0]).getTags().forEach(t => event.get(t).add(meat[2]))
-        Item.of(meat[1]).getTags().forEach(t => event.get(t).add(meat[3]))
+        var [raw,cook,raw_cut,cook_cut] = m
+        Item.of(raw).getTags().forEach(t => event.get(t).add(raw_cut))
+        Item.of(cook).getTags().forEach(t => event.get(t).add(cook_cut))
     })
 })
