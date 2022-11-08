@@ -8,5 +8,5 @@ onEvent('jei.hide.items', event => {
 })
 
 onEvent('item.tooltip', tooltip => {
-	tooltip.add(Item.of('minecraft:flint_and_steel'),'테스트')
+	//tooltip.add(Item.of('minecraft:flint_and_steel'),'테스트')
 })
