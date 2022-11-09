@@ -59,7 +59,7 @@ function cutFoodData(config) {
 }
 
 function registerHeat(item) {
-    JsonIO.write(`kubejs/data/tfc/tfc/item_heats/${item.split(':')[1]}.json`, {
+    JsonIO.write(`kubejs/data/tfc/tfc/item_heats/food/${item.split(':')[1]}.json`, {
         "ingredient": Item.of(item),
         "heat_capacity": 1.0
     })
@@ -104,7 +104,7 @@ onEvent('item.tags', event => {
 
 	// Get the #forge:cobblestone tag collection and remove Mossy Cobblestone from it
 	// event.get('forge:cobblestone').remove('minecraft:mossy_cobblestone')
-    meatdb.forEach(meat => {
+    meatdb.forEach(m => {
         var [raw,cook,raw_cut,cook_cut] = m
         Item.of(raw).getTags().forEach(t => event.get(t).add(raw_cut))
         Item.of(cook).getTags().forEach(t => event.get(t).add(cook_cut))
