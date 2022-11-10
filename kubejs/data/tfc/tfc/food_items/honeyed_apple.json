@@ -1,0 +1,11 @@
+{
+	"ingredient": {
+		"item": "create:honeyed_apple"
+	},
+	"category": "fruit",
+	"hunger": 5,
+	"saturation": 1,
+	"decay_modifier": 0.5,
+	"fruit": 1,
+	"dairy": 0.5
+}
