@@ -2,7 +2,7 @@
 
 onEvent('recipes', event => {
 	// Change recipes here
-	console.info('=====================================================================================Add ore smelting recipe!!!!!!')
+	//console.info('=====================================================================================Add ore smelting recipe!!!!!!')
 	event.forEachRecipe({type : 'tfc:heating'}, recipe => {
 		if (!recipe.json.asJsonObject.has('ingredient') || !recipe.json.asJsonObject.has('result_fluid'))
 			return;
