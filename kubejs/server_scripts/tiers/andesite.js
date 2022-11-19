@@ -61,6 +61,7 @@ onEvent('recipes', e => {
 	}
 
 
+    
     e.shaped('tfc:brick/andesite', ['AAA', 'AAA'], {
         A: 'tfc:rock/loose/andesite'
     })
@@ -82,10 +83,8 @@ onEvent('recipes', e => {
         W: 'tfc:metal/sheet/wrought_iron',
         A: 'create:andesite_alloy'
     })
-    
 
     e.shapeless('4x create:andesite_casing', ['tfc:wattle', '#tfc:lumber', 'create:andesite_alloy'])
-
 
     e.smithing('create:mechanical_saw', 'create:andesite_casing', saw)
     e.smithing('create:mechanical_drill', 'create:andesite_casing', 'immersiveengineering:drillhead_iron')
@@ -96,9 +95,7 @@ onEvent('recipes', e => {
     e.smithing('create:mechanical_harvester', 'create:andesite_casing', )
     e.smithing('encased_fan', 'create:andesite_casing', 'create:propeller')
 
-
     tfc_welding_item('tfc:brick/andesite', bronze, 0, 'create:andesite_alloy', 16)
-
 
     tfc_anvil('create:andesite_alloy', 'create:shaft', 6, -1, 'shrink')
     tfc_anvil('tfc:metal/double_sheet/brass', 'create:brass_hand', 1,  -1, 'punch')
