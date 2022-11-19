@@ -1,8 +1,46 @@
-onEvent('recipes', e => {
-    let bronze = ['tfc:metal/ingot/bismuth_bronze', 'tfc:metal/ingot/black_bronze', 'tfc:metal/ingot/bronze']
-    let sheet = ['tfc:metal/sheet/bismuth_bronze', 'tfc:metal/sheet/black_bronze', 'tfc:metal/sheet/bronze']
-    let saw = ['tfc:metal/saw_blade/bismuth_bronze', 'tfc:metal/saw_blade/black_bronze', 'tfc:metal/saw_blade/bronze']
+let metals = ['bismuth', 'bismuth_bronze', 'black_bronze', 'black_steel', 'blue_steel', 'brass', 'bronze', 'cast_iron', 'copper', 'gold', 'nickel', 'red_steel', 'rose_gold', 'silver', 'steel', 
+'sterling_silver', 'tin', 'wrought_iron', 'zinc']
 
+onEvent('tags.items', e => {
+
+    metals.forEach(metal => {
+        e.add('terracreate:double_sheets', 'tfc:metal/double_sheet/' + metals)
+    })
+})
+
+
+
+let outputs = []
+let ids = ['create:andesite_casing', 
+        'tfc:andesite_brick', 'create:andesite_alloy', 
+        'create:shaft', 
+        'minecraft:smithing_table', 
+        'create:millstone',
+        'create:mechanical_saw', 
+        'immersiveengineering:drillhead_iron', 'create:mechanical_drill',
+        'create:mechanical_plough', 
+        'create:brass_hand', 'create:deployer',
+        'create:rope_pulley', 
+        'create:mechanical_mixer', 
+        'create:mechanical_harvester',
+        'create:propeller', 'create:encased_fan']
+
+onEvent('recipes', e => {
+    outputs.forEach(output => {
+        e.remove({output: output})
+    })
+
+    ids.forEach(id => {
+        e.remove({id: id})
+    })
+})
+
+
+
+let bronze = ['tfc:metal/ingot/bismuth_bronze', 'tfc:metal/ingot/black_bronze', 'tfc:metal/ingot/bronze']
+let sheet = ['tfc:metal/sheet/bismuth_bronze', 'tfc:metal/sheet/black_bronze', 'tfc:metal/sheet/bronze']
+let saw = ['tfc:metal/saw_blade/bismuth_bronze', 'tfc:metal/saw_blade/black_bronze', 'tfc:metal/saw_blade/bronze']
+onEvent('recipes', e => {
     let tfc_anvil = (input, output, count, tier, rule_1) => {
         e.custom({
             'type': 'tfc:anvil',
@@ -64,5 +102,5 @@ onEvent('recipes', e => {
 
     tfc_anvil('create:andesite_alloy', 'create:shaft', 6, -1, 'shrink')
     tfc_anvil('tfc:metal/double_sheet/brass', 'create:brass_hand', 1,  -1, 'punch')
-    tfc_anvil('#terracreate:double_sheets', 'create:propeller', 1, -1, punch)
+    tfc_anvil('#terracreate:double_sheets', 'create:propeller', 1, -1, 'punch')
 })
