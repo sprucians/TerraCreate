@@ -4,7 +4,7 @@ let metals = ['bismuth', 'bismuth_bronze', 'black_bronze', 'black_steel', 'blue_
 onEvent('tags.items', e => {
 
     metals.forEach(metal => {
-        e.add('terracreate:double_sheets', 'tfc:metal/double_sheet/' + metals)
+        e.add('terracreate:double_sheets', 'tfc:metal/double_sheet/' + metal)
     })
 })
 
