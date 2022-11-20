@@ -10,8 +10,7 @@ onEvent('tags.items', e => {
 
 
 
-let outputs = []
-let ids = ['create:andesite_casing', 
+let outputs = ['create:andesite_casing', 
         'tfc:andesite_brick', 'create:andesite_alloy', 
         'create:shaft', 
         'minecraft:smithing_table', 
@@ -24,6 +23,7 @@ let ids = ['create:andesite_casing',
         'create:mechanical_mixer', 
         'create:mechanical_harvester',
         'create:propeller', 'create:encased_fan']
+let ids = []
 
 onEvent('recipes', e => {
     outputs.forEach(output => {
@@ -71,7 +71,7 @@ onEvent('recipes', e => {
         L: '#tfc:lumber',
         A: ['tfc:metal/anvil/bismuth_bronze', 'tfc:metal/hammer/black_bronze', 'tfc:metal/hammer/bronze'],
     })
-    e.shaped('minecraft:millstone', ['LHL', 'CCC', 'AQA'], {
+    e.shaped('create:millstone', ['LHL', 'CCC', 'AQA'], {
         L: '#tfc:lumber',
         H: 'tfc:handstone',
         C: 'create:cogwheel',
@@ -93,7 +93,7 @@ onEvent('recipes', e => {
     e.smithing('create:rope_pulley', 'create:andesite_casing', 'minecraft:lead')
     e.smithing('create:mechanical_mixer', 'create:andesite_casing', 'create:whisk')
     e.smithing('create:mechanical_harvester', 'create:andesite_casing', )
-    e.smithing('encased_fan', 'create:andesite_casing', 'create:propeller')
+    e.smithing('create:encased_fan', 'create:andesite_casing', 'create:propeller')
 
     tfc_welding_item('tfc:brick/andesite', bronze, 0, 'create:andesite_alloy', 16)
 
