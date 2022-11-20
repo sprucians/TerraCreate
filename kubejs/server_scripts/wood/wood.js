@@ -15,6 +15,6 @@ let woods = ['acacia', 'ash', 'aspen', 'birch', 'blackwood', 'chestnut', 'dougla
 onEvent('tags.items', e => {
 
     woods.forEach(wood => {
-        e.add('minecraft:wooden_trapdoors', 'tfc:wood/planks/' + woods + '_trapdoor')
+        e.add('minecraft:wooden_trapdoors', 'tfc:wood/planks/' + wood + '_trapdoor')
     })   
 })
