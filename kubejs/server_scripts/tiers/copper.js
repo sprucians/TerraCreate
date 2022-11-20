@@ -33,7 +33,7 @@ onEvent('recipes', e => {
 
     e.smithing('create:fluid_tank', 'create:copper_casing', '#forge:glass')
     e.smithing('create:spout', 'create:fluid_tank', 'tfc:metal/tuyere/copper')
-    e.smithing('create:hose_pulley', 'create:rope_pulley', 'fluid_pipe')
+    e.smithing('create:hose_pulley', 'create:rope_pulley', 'create:fluid_pipe')
 
     tfc_anvil('tfc:metal/double_ingot/copper', 'create:fluid_pipe', 8, -1, 'punch')
 
