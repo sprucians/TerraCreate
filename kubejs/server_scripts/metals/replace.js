@@ -1,3 +1,4 @@
+/*
 onEvent('tags.items', event => {
     
     const silvers = event.get('forge:ingots/silver').getObjecIds()
@@ -90,12 +91,13 @@ onEvent('tags.items', event => {
         event.remove('forge:plates/copper', copper)
     })
 
-/*
+
 for tag,item in replaceTagMap{
 	Replacer.forTypes(craftingTable).excludingMods("tfc","immersiveengineering","theoneprobe","firmalife").replace(tag, item).execute();
 	tag.clear();
 	tag.add(item);
 }
-*/
+
     
 })
+*/
