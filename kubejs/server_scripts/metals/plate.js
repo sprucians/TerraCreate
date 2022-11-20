@@ -16,19 +16,10 @@ metals.forEach(metal => {
 
 onEvent('recipes', e => {
     e.remove({output: '#forge:plates'})
-
-    
-    sheets.forEach(sheet => {
-        doubleIngots.forEach(doubleIngot => {
-            e.recipes.createPressing(sheet, doubleIngot)
-        })
-    })
-
     for(let i = 0; i<metals.length; i++) {
         e.recipes.immersiveengineeringMetalPress(sheets[i], '2x ' + ingots[i], 'immersiveengineering:mold_plate').energy(1000)
     }
     for(let i = 0; i<metals.length; i++) {
         e.recipes.createPressing(sheets[i], doubleIngots[i])
     }
-    
 })
