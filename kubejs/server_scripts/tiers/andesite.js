@@ -9,8 +9,7 @@ onEvent('tags.items', e => {
 
 
 
-let outputs = []
-let ids = ['create:andesite_casing', 
+let outputs = ['create:andesite_casing', 
         'tfc:andesite_brick', 'create:andesite_alloy', 
         'create:shaft', 
         'minecraft:smithing_table', 
@@ -23,6 +22,7 @@ let ids = ['create:andesite_casing',
         'create:mechanical_mixer', 
         'create:mechanical_harvester',
         'create:propeller', 'create:encased_fan']
+let ids = []
 
 onEvent('recipes', e => {
     outputs.forEach(output => {
@@ -36,15 +36,19 @@ onEvent('recipes', e => {
 
 
 
+let bronze = ['tfc:metal/ingot/bismuth_bronze', 'tfc:metal/ingot/black_bronze', 'tfc:metal/ingot/bronze']
+let sheet = ['tfc:metal/sheet/bismuth_bronze', 'tfc:metal/sheet/black_bronze', 'tfc:metal/sheet/bronze']
+let saw = ['tfc:metal/saw_blade/bismuth_bronze', 'tfc:metal/saw_blade/black_bronze', 'tfc:metal/saw_blade/bronze']
+
 onEvent('recipes', e => {
-        let tfc_anvil = (input, output, count, tier, rule) => {
+        let tfc_anvil = (input, output, count, tier, rule, id) => {
             e.custom({
                 'type': 'tfc:anvil',
                 'input': {'item': ipnut},
                 'result': {'item': output, 'count': count},
                 'tier': tier,
                 'rules': [rule + '_last']
-            })
+            }).id('kubejs:anvil_working/' + id)
         }
         let tfc_welding_item = (input_1, input_2, tier, output, count) => {
             e.custom({
@@ -53,7 +57,7 @@ onEvent('recipes', e => {
                 'second_input': {'item': input_2},
                 'tier': tier,
                 'result': { 'item': output, 'count': count }
-            })
+            }).id('kubejs:anvil_welding/' + id)
         }
     
 
@@ -83,13 +87,13 @@ onEvent('recipes', e => {
 
     e.shapeless('4x create:andesite_casing', ['tfc:wattle', '#tfc:lumber', 'create:andesite_alloy'])
 
-    e.smithing('create:mechanical_saw', 'create:andesite_casing', 'tfc:metal/saw_blade/bismuth_bronze')
-    e.smithing('create:mechanical_saw', 'create:andesite_casing', 'tfc:metal/saw_blade/black_bronze')
-    e.smithing('create:mechanical_saw', 'create:andesite_casing', 'tfc:metal/saw_blade/bronze')
+    saw.forEach(i => {
+        e.smithing('create:mechanical_saw', 'create:andesite_casing', i)
+    })
+    sheet.forEach(i => {
+        e.smithing('create:mechanical_plough', 'create:andesite_casing', i)
+    })
     e.smithing('create:mechanical_drill', 'create:andesite_casing', 'immersiveengineering:drillhead_iron')
-    e.smithing('create:mechanical_plough', 'create:andesite_casing', 'tfc:metal/sheet/bismuth_bronze')
-    e.smithing('create:mechanical_plough', 'create:andesite_casing', 'tfc:metal/sheet/black_bronze')
-    e.smithing('create:mechanical_plough', 'create:andesite_casing', 'tfc:metal/sheet/bronze')
     e.smithing('create:deployer', 'create:andesite_casing', 'create:brass_hand')
     e.smithing('create:rope_pulley', 'create:andesite_casing', 'minecraft:lead')
     e.smithing('create:mechanical_mixer', 'create:andesite_casing', 'create:whisk')
