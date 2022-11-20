@@ -50,7 +50,7 @@ onEvent('recipes', e => {
                 'rules': [rule + '_last']
             }).id('kubejs:anvil_working/' + id)
         }
-        let tfc_welding_item = (input_1, input_2, tier, output, count) => {
+        let tfc_welding_item = (input_1, input_2, tier, output, count, id) => {
             e.custom({
                 'type': 'tfc:welding',
                 'first_input': {'item': input_1},
@@ -100,9 +100,11 @@ onEvent('recipes', e => {
     e.smithing('create:mechanical_harvester', 'create:andesite_casing', )
     e.smithing('create:encased_fan', 'create:andesite_casing', 'create:propeller')
 
-    tfc_welding_item('tfc:brick/andesite', ['tfc:metal/ingot/bismuth_bronze', 'tfc:metal/ingot/black_bronze', 'tfc:metal/ingot/bronze'], 0, 'create:andesite_alloy', 16)
-
-    tfc_anvil('create:andesite_alloy', 'create:shaft', 6, -1, 'shrink')
-    tfc_anvil('tfc:metal/double_sheet/brass', 'create:brass_hand', 1,  -1, 'punch')
-    tfc_anvil('#terracreate:double_sheets', 'create:propeller', 1, -1, 'punch')
+    bronze.forEach(i => {
+        tfc_welding_item('tfc:brick/andesite', i, 0, 'create:andesite_alloy', 16, 'andesite_alloy')
+    })
+    
+    tfc_anvil('create:andesite_alloy', 'create:shaft', 6, -1, 'shrink', 'shaft')
+    tfc_anvil('tfc:metal/double_sheet/brass', 'create:brass_hand', 1,  -1, 'punch', 'brass_hand')
+    tfc_anvil('#terracreate:double_sheets', 'create:propeller', 1, -1, 'punch', 'propeller')
 })
