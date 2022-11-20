@@ -3,7 +3,7 @@ let metals = ['bismuth', 'bismuth_bronze', 'black_bronze', 'black_steel', 'blue_
 
 onEvent('tags.items', e => {
     metals.forEach(metal => {
-        e.add('terracreate:double_sheets', 'tfc:metal/double_sheet/' + metal)
+        e.add('kubejs:double_sheets', 'tfc:metal/double_sheet/' + metal)
     })
 })
 
@@ -106,5 +106,5 @@ onEvent('recipes', e => {
     
     tfc_anvil('create:andesite_alloy', 'create:shaft', 6, -1, 'shrink', 'shaft')
     tfc_anvil('tfc:metal/double_sheet/brass', 'create:brass_hand', 1,  -1, 'punch', 'brass_hand')
-    tfc_anvil('#terracreate:double_sheets', 'create:propeller', 1, -1, 'punch', 'propeller')
+    tfc_anvil('#kubejs:double_sheets', 'create:propeller', 1, -1, 'punch', 'propeller')
 })

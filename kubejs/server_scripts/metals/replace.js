@@ -1,4 +1,5 @@
 onEvent('tags.items', event => {
+    
     const silvers = event.get('forge:ingots/silver').getObjecIds()
     const bronzes = event.get('forge:ingots/bronze').getObjecIds()
     const coppers = event.get('forge:ingots/copper').getObjecIds()
@@ -15,7 +16,7 @@ onEvent('tags.items', event => {
 
     silvers.forEach(silver => {
         event.add('tfc:metal/ingot/silver', silver)
-        event.remove('forge:ingots/', silver)
+        event.remove('forge:ingots/silver', silver)
     })
     bronzes.forEach(bronze => {
         event.add('tfc:metal/ingot/bronze', bronze)
@@ -88,7 +89,6 @@ onEvent('tags.items', event => {
         event.add('tfc:metal/sheet/copper', copper)
         event.remove('forge:plates/copper', copper)
     })
-})
 
 /*
 for tag,item in replaceTagMap{
@@ -97,3 +97,5 @@ for tag,item in replaceTagMap{
 	tag.add(item);
 }
 */
+    
+})
