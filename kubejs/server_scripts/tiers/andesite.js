@@ -11,7 +11,7 @@ onEvent('tags.items', e => {
 
 
 let outputs = ['create:andesite_casing', 
-        'tfc:andesite_brick', 'create:andesite_alloy', 
+        'tfc:andesite_brick', 
         'create:shaft', 
         'minecraft:smithing_table', 
         'create:millstone',
@@ -38,16 +38,16 @@ onEvent('recipes', e => {
 
 
 onEvent('recipes', e => {
-    function tfc_anvil(input, output, count, tier, rule) {
+        let tfc_anvil = (input, output, count, tier, rule) => {
         e.custom({
             'type': 'tfc:anvil',
             'input': {'item': ipnut},
-            'result': {'item': output},
+            'result': {'item': output, 'count': count},
             'tier': tier,
             'rules': [rule + '_last']
         })
     }
-    function tfc_welding(input_1, input_2, tier, output, count) {
+        let tfc_welding_item = (input_1, input_2, tier, output, count) => {
 		e.custom({
 			'type': 'tfc:welding',
 			'first_input': {'item': input_1},
@@ -93,15 +93,9 @@ onEvent('recipes', e => {
     e.smithing('create:mechanical_harvester', 'create:andesite_casing', )
     e.smithing('create:encased_fan', 'create:andesite_casing', 'create:propeller')
 
-    tfc_welding('tfc:brick/andesite', ['tfc:metal/ingot/bismuth_bronze', 'tfc:metal/ingot/black_bronze', 'tfc:metal/ingot/bronze'], 0, 'create:andesite_alloy', 16)
+    tfc_welding_item('tfc:brick/andesite', ['tfc:metal/ingot/bismuth_bronze', 'tfc:metal/ingot/black_bronze', 'tfc:metal/ingot/bronze'], 0, 'create:andesite_alloy', 16)
 
-    tfc_anvil('tfc:metal/double_sheet/brass', 'create:brass_hand', -1, 'punch')
-    tfc_anvil('#terracreate:double_sheets', 'create:propeller', -1, 'punch')
-    e.custom({
-        'type': 'tfc:anvil',
-        'input': {'item': 'create:andesite_alloy'},
-        'result': {'item': '6x create:shaft'},
-        'tier': -1,
-        'rules': ['shrink_last']
-    })
+    tfc_anvil('create:andesite_alloy', 'create:shaft', 6, -1, 'shrink')
+    tfc_anvil('tfc:metal/double_sheet/brass', 'create:brass_hand', 1,  -1, 'punch')
+    tfc_anvil('#terracreate:double_sheets', 'create:propeller', 1, -1, 'punch')
 })
