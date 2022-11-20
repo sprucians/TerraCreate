@@ -44,19 +44,19 @@ onEvent('recipes', e => {
         let tfc_anvil = (input, output, count, tier, rule, id) => {
             e.custom({
                 'type': 'tfc:anvil',
-                'input': {'item': ipnut},
+                'input': {'item': input},
                 'result': {'item': output, 'count': count},
                 'tier': tier,
                 'rules': [rule + '_last']
             }).id('kubejs:anvil_working/' + id)
         }
-        let tfc_welding_item = (input_1, input_2, tier, output, count, id) => {
+        let tfc_welding = (input_1, input_2, tier, output, count, id) => {
             e.custom({
                 'type': 'tfc:welding',
                 'first_input': {'item': input_1},
                 'second_input': {'item': input_2},
                 'tier': tier,
-                'result': { 'item': output, 'count': count }
+                'result': {'item': output, 'count': count}
             }).id('kubejs:anvil_welding/' + id)
         }
     
@@ -101,7 +101,7 @@ onEvent('recipes', e => {
     e.smithing('create:encased_fan', 'create:andesite_casing', 'create:propeller')
 
     bronze.forEach(i => {
-        tfc_welding_item('tfc:brick/andesite', i, 0, 'create:andesite_alloy', 16, 'andesite_alloy')
+        tfc_welding('tfc:brick/andesite', i, 0, 'create:andesite_alloy', 16, 'andesite_alloy')
     })
     
     tfc_anvil('create:andesite_alloy', 'create:shaft', 6, -1, 'shrink', 'shaft')
