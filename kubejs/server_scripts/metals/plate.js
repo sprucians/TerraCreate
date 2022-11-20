@@ -4,7 +4,7 @@ let ingots = []
 let sheets = []
 let doubleIngots = []
 metals.forEach(metal => {
-    ingots.push('tfc:metal/ingot/'+metal)
+    ingots.push('2x tfc:metal/ingot/'+metal)
 })
 metals.forEach(metal => {
     sheets.push('tfc:metal/sheet/'+metal)
@@ -17,6 +17,6 @@ metals.forEach(metal => {
 onEvent('recipes', e => {
     e.remove({output: '#forge:plates'})
 
-    e.recipes.immersiveengineeringMetalPress(sheet, '2x '+ingot, 'immersiveengineering:mold_plate').energy(1000)
+    e.recipes.immersiveengineeringMetalPress(sheet, ingot, 'immersiveengineering:mold_plate').energy(1000)
     e.recipes.createPressing(sheet, doubleIngots)
 })
