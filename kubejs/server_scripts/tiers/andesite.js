@@ -2,7 +2,6 @@ let metals = ['bismuth', 'bismuth_bronze', 'black_bronze', 'black_steel', 'blue_
 'sterling_silver', 'tin', 'wrought_iron', 'zinc']
 
 onEvent('tags.items', e => {
-
     metals.forEach(metal => {
         e.add('terracreate:double_sheets', 'tfc:metal/double_sheet/' + metal)
     })
@@ -10,8 +9,9 @@ onEvent('tags.items', e => {
 
 
 
-let outputs = ['create:andesite_casing', 
-        'tfc:andesite_brick', 
+let outputs = []
+let ids = ['create:andesite_casing', 
+        'tfc:andesite_brick', 'create:andesite_alloy', 
         'create:shaft', 
         'minecraft:smithing_table', 
         'create:millstone',
@@ -23,7 +23,6 @@ let outputs = ['create:andesite_casing',
         'create:mechanical_mixer', 
         'create:mechanical_harvester',
         'create:propeller', 'create:encased_fan']
-let ids = []
 
 onEvent('recipes', e => {
     outputs.forEach(output => {
@@ -39,23 +38,23 @@ onEvent('recipes', e => {
 
 onEvent('recipes', e => {
         let tfc_anvil = (input, output, count, tier, rule) => {
-        e.custom({
-            'type': 'tfc:anvil',
-            'input': {'item': ipnut},
-            'result': {'item': output, 'count': count},
-            'tier': tier,
-            'rules': [rule + '_last']
-        })
-    }
+            e.custom({
+                'type': 'tfc:anvil',
+                'input': {'item': ipnut},
+                'result': {'item': output, 'count': count},
+                'tier': tier,
+                'rules': [rule + '_last']
+            })
+        }
         let tfc_welding_item = (input_1, input_2, tier, output, count) => {
-		e.custom({
-			'type': 'tfc:welding',
-			'first_input': {'item': input_1},
-			'second_input': {'item': input_2},
-			'tier': tier,
-			'result': { 'item': output, 'count': count }
-		})
-	}
+            e.custom({
+                'type': 'tfc:welding',
+                'first_input': {'item': input_1},
+                'second_input': {'item': input_2},
+                'tier': tier,
+                'result': { 'item': output, 'count': count }
+            })
+        }
     
 
 
@@ -67,7 +66,7 @@ onEvent('recipes', e => {
         B: ['tfc:metal/ingot/bismuth_bronze', 'tfc:metal/ingot/black_bronze', 'tfc:metal/ingot/bronze'],
         H: ['tfc:metal/hammer/bismuth_bronze', 'tfc:metal/hammer/black_bronze', 'tfc:metal/hammer/bronze'],
         L: '#tfc:lumber',
-        A: ['tfc:metal/anvil/bismuth_bronze', 'tfc:metal/hammer/black_bronze', 'tfc:metal/hammer/bronze'],
+        A: ['tfc:metal/anvil/bismuth_bronze', 'tfc:metal/anvil/black_bronze', 'tfc:metal/anvil/bronze'],
     })
     e.shaped('create:millstone', ['LHL', 'CCC', 'AQA'], {
         L: '#tfc:lumber',
@@ -84,9 +83,13 @@ onEvent('recipes', e => {
 
     e.shapeless('4x create:andesite_casing', ['tfc:wattle', '#tfc:lumber', 'create:andesite_alloy'])
 
-    e.smithing('create:mechanical_saw', 'create:andesite_casing', ['tfc:metal/saw_blade/bismuth_bronze', 'tfc:metal/saw_blade/black_bronze', 'tfc:metal/saw_blade/bronze'])
+    e.smithing('create:mechanical_saw', 'create:andesite_casing', 'tfc:metal/saw_blade/bismuth_bronze')
+    e.smithing('create:mechanical_saw', 'create:andesite_casing', 'tfc:metal/saw_blade/black_bronze')
+    e.smithing('create:mechanical_saw', 'create:andesite_casing', 'tfc:metal/saw_blade/bronze')
     e.smithing('create:mechanical_drill', 'create:andesite_casing', 'immersiveengineering:drillhead_iron')
-    e.smithing('create:mechanical_plough', 'create:andesite_casing', ['tfc:metal/sheet/bismuth_bronze', 'tfc:metal/sheet/black_bronze', 'tfc:metal/sheet/bronze'])
+    e.smithing('create:mechanical_plough', 'create:andesite_casing', 'tfc:metal/sheet/bismuth_bronze')
+    e.smithing('create:mechanical_plough', 'create:andesite_casing', 'tfc:metal/sheet/black_bronze')
+    e.smithing('create:mechanical_plough', 'create:andesite_casing', 'tfc:metal/sheet/bronze')
     e.smithing('create:deployer', 'create:andesite_casing', 'create:brass_hand')
     e.smithing('create:rope_pulley', 'create:andesite_casing', 'minecraft:lead')
     e.smithing('create:mechanical_mixer', 'create:andesite_casing', 'create:whisk')
