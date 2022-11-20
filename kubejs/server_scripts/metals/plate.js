@@ -32,5 +32,3 @@ onEvent('recipes', e => {
     }
     
 })
-
-'tfc:metal/sheet/silver', '2x ' + 'tfc:metal/ingot/silver'
