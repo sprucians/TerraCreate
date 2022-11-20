@@ -39,6 +39,9 @@ onEvent('recipes', e => {
 let bronze = ['tfc:metal/ingot/bismuth_bronze', 'tfc:metal/ingot/black_bronze', 'tfc:metal/ingot/bronze']
 let sheet = ['tfc:metal/sheet/bismuth_bronze', 'tfc:metal/sheet/black_bronze', 'tfc:metal/sheet/bronze']
 let saw = ['tfc:metal/saw_blade/bismuth_bronze', 'tfc:metal/saw_blade/black_bronze', 'tfc:metal/saw_blade/bronze']
+let hoe = ['tfc:metal/hoe_head/bismuth_bronze', 'tfc:metal/hoe_head/black_bronze', 'tfc:metal/hoe_head/black_steel', 
+        'tfc:metal/hoe_head/blue_steel', 'tfc:metal/hoe_head/bronze', 'tfc:metal/hoe_head/copper', 
+        'tfc:metal/hoe_head/red_steel', 'tfc:metal/hoe_head/steel', 'tfc:metal/hoe_head/wrought_iron']
 
 onEvent('recipes', e => {
         let tfc_anvil = (input, output, count, tier, rule, id) => {
@@ -97,7 +100,9 @@ onEvent('recipes', e => {
     e.smithing('create:deployer', 'create:andesite_casing', 'create:brass_hand')
     e.smithing('create:rope_pulley', 'create:andesite_casing', 'minecraft:lead')
     e.smithing('create:mechanical_mixer', 'create:andesite_casing', 'create:whisk')
-    e.smithing('create:mechanical_harvester', 'create:andesite_casing', )
+    hoe.forEach(i => {
+        e.smithing('create:mechanical_harvester', 'create:andesite_casing', i)
+    })
     e.smithing('create:encased_fan', 'create:andesite_casing', 'create:propeller')
 
     bronze.forEach(i => {
