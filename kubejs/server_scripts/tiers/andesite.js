@@ -50,8 +50,8 @@ onEvent('recipes', e => {
     function tfc_welding(input_1, input_2, tier, output, count) {
 		e.custom({
 			'type': 'tfc:welding',
-			'first_input': { 'item': input_1 },
-			'second_input': { 'item': input_2 },
+			'first_input': {'item': input_1},
+			'second_input': {'item': input_2},
 			'tier': tier,
 			'result': { 'item': output, 'count': count }
 		})
@@ -95,7 +95,13 @@ onEvent('recipes', e => {
 
     tfc_welding('tfc:brick/andesite', ['tfc:metal/ingot/bismuth_bronze', 'tfc:metal/ingot/black_bronze', 'tfc:metal/ingot/bronze'], 0, 'create:andesite_alloy', 16)
 
-    tfc_anvil('create:andesite_alloy', 'create:shaft', 6, -1, 'shrink')
-    tfc_anvil('tfc:metal/double_sheet/brass', 'create:brass_hand', 1,  -1, 'punch')
-    tfc_anvil('#terracreate:double_sheets', 'create:propeller', 1, -1, 'punch')
+    tfc_anvil('tfc:metal/double_sheet/brass', 'create:brass_hand', -1, 'punch')
+    tfc_anvil('#terracreate:double_sheets', 'create:propeller', -1, 'punch')
+    e.custom({
+        'type': 'tfc:anvil',
+        'input': {'item': 'create:andesite_alloy'},
+        'result': {'item': '6x create:shaft'},
+        'tier': -1,
+        'rules': ['shrink_last']
+    })
 })
