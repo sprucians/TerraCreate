@@ -5,13 +5,14 @@ onEvent('tags.items', e => {
 
 
 
-let outputs = ['create:copper_casing', 'create:fluid_pipe', 'create:fluid_tank',
+let removes = ['create:copper_casing', 'create:fluid_pipe', 'create:fluid_tank',
         'create:spout', 'create:hose_pulley', 'create:item_drain',
         'create:portable_fluid_interface']
 
 onEvent('recipes', e => {
-    outputs.forEach(output => {
-        e.remove({output: output})
+    removes.forEach(remove => {
+        e.remove({output: remove})
+        e.remove({id: remove})
     })
 })
 
