@@ -99,14 +99,7 @@ for tag,item in replaceTagMap{
 }
 })
 */
-
-/*let forgePlateMetals = ['iron', 'gold', 'brass', 'copper']
-let tfcSheetMetals = ['wrought_iron', 'gold', 'brass', 'copper']
-
-let forgeIngotMetals = ['silver', 'bronze', 'copper', 'brass', 'iron', 'zinc', 'tin', 'steel', 'gold', 'rose_gold', 'sterling_silver', 'nickel', 'bismuth']
-let tfcIngotMetals = ['silver', 'bronze', 'copper', 'brass', 'iron', 'zinc', 'tin', 'steel', 'gold', 'rose_gold', 'sterling_silver', 'nickel', 'bismuth']
-
-
+/*
 onEvent('recipes', e => {
     for(let i = 0; i<forgePlateMetals.length; i++) {
         e.replaceInput('#forge:plates/' + forgePlateMetals[i], '#tfc:metal/sheet/' + tfcSheetMetals[i])
@@ -116,7 +109,30 @@ onEvent('recipes', e => {
     }
    
 })*/
-onEvent('recipes' , e => {
-    e.replaceInput({}, 'create:copper_sheet', 'tfc:metal/sheet/copper')
-    e.replaceInput({}, 'immersiveengineering:copper_sheet', 'tfc:metal/sheet/copper')
+let forgePlateMetals = ['iron', 'gold', 'brass', 'copper']
+let tfcSheetMetals = ['wrought_iron', 'gold', 'brass', 'copper']
+
+onEvent('tags.items', e => {
+    for(let i = 0; i<forgePlateMetals.length; i++) {
+        let f = forgePlateMetals[i]
+        let t = tfcSheetMetals[i]
+        const m = e.get('tfc:metal/sheet' + t).getObjectIDs()
+        m.forEach(n => {
+            e.add('forge:plates/' + f, n)
+        })
+    }
+})
+
+let forgeIngotMetals = ['silver', 'bronze', 'copper', 'brass', 'iron', 'zinc', 'tin', 'steel', 'gold', 'rose_gold', 'sterling_silver', 'nickel', 'bismuth']
+let tfcIngotMetals = ['silver', 'bronze', 'copper', 'brass', 'iron', 'zinc', 'tin', 'steel', 'gold', 'rose_gold', 'sterling_silver', 'nickel', 'bismuth']
+
+onEvent('tags.items', e => {
+    for(let i = 0; i<forgeIngotMetals.length; i++) {
+        let f = forgeIngotMetals[i]
+        let t = tfcIngotMetals[i]
+        const m = e.get('tfc:metal/ingot' + t).getObjectIDs()
+        m.forEach(n => {
+            e.add('forge:ingots/' + f, n)
+        })
+    }
 })

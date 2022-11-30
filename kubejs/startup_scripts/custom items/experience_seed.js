@@ -1,5 +1,5 @@
 onEvent('item.registry', e => {
-    e.create('experience_seed').glow(true)
+    e.create('experience_seed').displayName("experience seed").glow(true).color(#A5FF9B)
 })
 
 onEvent('recipes', e => {
@@ -8,17 +8,17 @@ onEvent('recipes', e => {
         "type": "tfc:barrel_sealed", 
         "input_item": { 
             "ingredient": { 
-                "item": 'kubejs:experience_seed', 
-            "count": 1
+                "item": 'kubejs:experience_seed', 
+            "count": 1
             } 
         }, 
-        "input_fluid": { 
-            "ingredient": 'create_enchantment_industry:experience', 
-            "amount": 100
+        "input_fluid": { 
+            "ingredient": 'create_enchantment_industry:experience', 
+            "amount": 100
         }, 
-        "output_item": { 
-             "item": 'create:experience_nugget', 
-            "count": 1
+        "output_item": { 
+            "item": 'create:experience_nugget', 
+            "count": 1
         },
         "duration": 1200
     })
