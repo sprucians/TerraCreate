@@ -116,3 +116,7 @@ onEvent('recipes', e => {
     }
    
 })*/
+onEvent('recipes' , e => {
+    e.replaceInput({}, 'create:copper_sheet', 'tfc:metal/sheet/copper')
+    e.replaceInput({}, 'immersiveengineering:copper_sheet', 'tfc:metal/sheet/copper')
+})
