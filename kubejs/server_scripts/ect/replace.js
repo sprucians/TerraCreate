@@ -1,142 +1,53 @@
-/*
-onEvent('tags.items', e => {
-    
-    const silvers = e.get('forge:ingots/silver').getObjectIds()
-    const bronzes = e.get('forge:ingots/bronze').getObjectIds()
-    const coppers = e.get('tfc:metal/ingot/copper').getObjectIds()
-    const brasses = e.get('forge:ingots/brass').getObjectIds()
-    const irons = e.get('forge:ingots/iron').getObjectIds()
-    const zincs = e.get('forge:ingots/zinc').getObjectIds()
-    const tins = e.get('forge:ingots/tin').getObjectIds()
-    const steels = e.get('forge:ingots/steel').getObjectIds()
-    const golds = e.get('forge:ingots/gold').getObjectIds()
-    const rose_golds = e.get('forge:ingots/rose_gold').getObjectIds()
-    const sterling_silvers = e.get('forge:ingots/sterling_silver').getObjectIds()
-    const nickels = e.get('forge:ingots/nickel').getObjectIds()
-    const bismuthes = e.get('forge:ingots/bismuth').getObjectIds()
-
-    silvers.forEach(silver => {
-        e.add('tfc:metal/ingot/silver', silver)
-        e.remove('forge:ingots/silver', silver)
-    })
-    bronzes.forEach(bronze => {
-        e.add('tfc:metal/ingot/bronze', bronze)
-        e.remove('forge:ingots/bronze', bronze)
-    })
-    coppers.forEach(copper => {
-        e.add('forge:ingots/copper', copper)
-    })
-    brasses.forEach(brass => {
-        e.add('tfc:metal/ingot/brass', brass)
-        e.remove('forge:ingots/brass', brass)
-    })
-    irons.forEach(iron => {
-        e.add('tfc:metal/ingot/iron', iron)
-        e.remove('forge:ingots/iron', iron)
-    })
-    zincs.forEach(zinc => {
-        e.add('tfc:metal/ingot/zinc', zinc)
-        e.remove('forge:ingots/zinc', zinc)
-    })
-    tins.forEach(tin => {
-        e.add('tfc:metal/ingot/tin', tin)
-        e.remove('forge:ingots/tin', tin)
-    })
-    steels.forEach(steel => {
-        e.add('tfc:metal/ingot/steel', steel)
-        e.remove('forge:ingots/steel', steel)
-    })
-    golds.forEach(gold => {
-        e.add('tfc:metal/ingot/gold', gold)
-        e.remove('forge:ingots/gold', gold)
-    })
-    rose_golds.forEach(rose_gold => {
-        e.add('tfc:metal/ingot/rose_gold', rose_gold)
-        e.remove('forge:ingots/rose_gold', rose_gold)
-    })
-    sterling_silvers.forEach(sterling_silver => {
-        e.add('tfc:metal/ingot/sterling_silver', sterling_silver)
-        e.remove('forge:ingots/sterling_silver', sterling_silver)
-    })
-    nickels.forEach(nickel => {
-        e.add('tfc:metal/ingot/nickel', nickel)
-        e.remove('forge:ingots/nickel', nickel)
-    })
-    bismuths.forEach(bismuth => {
-        e.add('tfc:metal/ingot/bismuth', bismuth)
-        e.remove('forge:ingots/bismuth', bismuth)
-    })
-
-
-    const p_irons = e.get('forge:plates/iron').getObjectIds()
-    const p_golds = e.get('forge:plates/gold').getObjectIds()
-    const p_brasses = e.get('forge:plates/brass').getObjectIds()
-    const p_coppers = e.get('tfc:metal/plate/copper').getObjectIds()
-
-    p_irons.forEach(iron => {
-        e.add('tfc:metal/sheet/wrought_iron', iron)
-        e.remove('forge:plates/wrought_iron', iron)
-    })
-    p_golds.forEach(gold => {
-        e.add('tfc:metal/sheet/gold', gold)
-        e.remove('forge:plates/gold', gold)
-    })
-    p_brasses.forEach(brass => {
-        e.add('tfc:metal/sheet/brass', brass)
-        e.remove('forge:plates/brass', brass)
-    })
-    p_coppers.forEach(copper => {
-        e.add('forge:plates/copper', copper)
-    })
-})*/
-
-/*
-for tag,item in replaceTagMap{
-	Replacer.forTypes(craftingTable).excludingMods("tfc","immersiveengineering","theoneprobe","firmalife").replace(tag, item).execute();
-	tag.clear();
-	tag.add(item);
-}
-})
-*/
-/*
-let forgePlateMetals = ['iron', 'gold', 'brass', 'copper']
-let tfcSheetMetals = ['wrought_iron', 'gold', 'brass', 'copper']
-
-
-let forgeIngotMetals = ['silver', 'bronze', 'copper', 'brass', 'iron', 'zinc', 'tin', 'steel', 'gold', 'rose_gold', 'sterling_silver', 'nickel', 'bismuth']
-let tfcIngotMetals = ['silver', 'bronze', 'copper', 'brass', 'iron', 'zinc', 'tin', 'steel', 'gold', 'rose_gold', 'sterling_silver', 'nickel', 'bismuth']
-/*
-onEvent('recipes', e => {
-    for(let i = 0; i<forgePlateMetals.length; i++) {
-        e.replaceInput('#forge:plates/' + forgePlateMetals[i], '#forge:sheets/' + tfcSheetMetals[i])
-    }
-    for(let i = 0; i<forgeIngotMetals.length; i++) {
-        e.replaceInput('#forge:ingots/' + forgeIngotMetals[i], '#forge:/' + tfcIngotMetals[i])
-    }
-   
-})
-*/
-/*
-
-onEvent('tags.items', e => {
-    for(let i = 0; i<forgePlateMetals.length; i++) {
-        let f = forgePlateMetals[i]
-        let t = tfcSheetMetals[i]
-        e.add('forge:plates/' + f, 'tfc:metal/sheet/' + t)
-    }
-})
-
-
-onEvent('tags.items', e => {
-    for(let i = 0; i<forgeIngotMetals.length; i++) {
-        let f = forgeIngotMetals[i]
-        let t = tfcIngotMetals[i]
-        e.add('forge:ingots/' + f, 'tfc:metal/ingot/' + t)
-    }
-})*/
-
 onEvent('tags.items', e => {
     e.add('forge:plates/iron', 'tfc:metal/sheet/wrought_iron')
     e.remove('forge:plates/iron', 'create:iron_sheet')
     e.remove('forge:plate/iron', 'immersiveengineering:plate_iron')
+    e.add('forge:plates/gold', 'tfc:metal/sheet/gold')
+    e.remove('forge:plates/gold', 'create:gold_sheet')
+    e.remove('forge:plate/gold', 'immersiveengineering:plate_gold')
+    e.add('forge:plates/brass', 'tfc:metal/sheet/brass')
+    e.remove('forge:plates/brass', 'create:brass_sheet')
+    e.remove('forge:plate/brass', 'immersiveengineering:plate_brass')
+    e.add('forge:plates/copper', 'tfc:metal/sheet/copper')
+    e.remove('forge:plates/copper', 'create:copper_sheet')
+    e.remove('forge:plate/copper', 'immersiveengineering:plate_copper')
+    e.add('forge:ingots/silver', 'tfc:metal/ingot/silver')
+    e.remove('forge:ingots/silver', 'create:silver_ingot')
+    e.remove('forge:ingots/silver', 'immersiveengineering:ingot_silver')
+    e.add('forge:ingots/bronze', 'tfc:metal/ingot/bronze')
+    e.remove('forge:ingots/bronze', 'create:bronze_ingot')
+    e.remove('forge:ingots/bronze', 'immersiveengineering:ingot_bronze')
+    e.add('forge:ingots/bronze', 'tfc:metal/ingot/bronze')
+    e.remove('forge:ingots/bronze', 'create:bronze_ingot')
+    e.remove('forge:ingots/bronze', 'immersiveengineering:ingot_bronze')
+    e.add('forge:ingots/brass', 'tfc:metal/ingot/brass')
+    e.remove('forge:ingots/brass', 'create:brass_ingot')
+    e.remove('forge:ingots/brass', 'immersiveengineering:ingot_brass')
+    e.add('forge:ingots/iron', 'tfc:metal/ingot/wrought_iron')
+    e.remove('forge:ingots/iron', 'create:iron_ingot')
+    e.remove('forge:ingots/iron', 'immersiveengineering:ingot_iron')
+    e.add('forge:ingots/zinc', 'tfc:metal/ingot/zinc')
+    e.remove('forge:ingots/zinc', 'create:zinc_ingot')
+    e.remove('forge:ingots/zinc', 'immersiveengineering:ingot_zinc')
+    e.add('forge:ingots/tin', 'tfc:metal/ingot/tin')
+    e.remove('forge:ingots/tin', 'create:tin_ingot')
+    e.remove('forge:ingots/tin', 'immersiveengineering:ingot_tin')
+    e.add('forge:ingots/steel', 'tfc:metal/ingot/steel')
+    e.remove('forge:ingots/steel', 'create:steel_ingot')
+    e.remove('forge:ingots/steel', 'immersiveengineering:ingot_steel')
+    e.add('forge:ingots/gold', 'tfc:metal/ingot/gold')
+    e.remove('forge:ingots/gold', 'create:gold_ingot')
+    e.remove('forge:ingots/gold', 'immersiveengineering:ingot_gold')
+    e.add('forge:ingots/rose_gold', 'tfc:metal/ingot/rose_gold')
+    e.remove('forge:ingots/rose_gold', 'create:rose_gold_ingot')
+    e.remove('forge:ingots/rose_gold', 'immersiveengineering:ingot_rose_gold')
+    e.add('forge:ingots/sterling_silver', 'tfc:metal/ingot/sterling_silver')
+    e.remove('forge:ingots/sterling_silver', 'create:sterling_silver_ingot')
+    e.remove('forge:ingots/sterling_silver', 'immersiveengineering:ingot_sterling_silver')
+    e.add('forge:ingots/nickel', 'tfc:metal/ingot/nickel')
+    e.remove('forge:ingots/nickel', 'create:nickel_ingot')
+    e.remove('forge:ingots/nickel', 'immersiveengineering:ingot_nickel')
+    e.add('forge:ingots/bismuth', 'tfc:metal/ingot/bismuth')
+    e.remove('forge:ingots/bismuth', 'create:bismuth_ingot')
+    e.remove('forge:ingots/bismuth', 'immersiveengineering:ingot_bismuth')
 })
