@@ -1,5 +1,5 @@
 onEvent('item.registry', e => {
-    e.create('experience_seed').displayName("experience seed").glow(true).color(#A5FF9B)
+    e.create('experience_seed').displayName("experience seed").glow(true).color('#A5FF9B')
 })
 
 onEvent('recipes', e => {

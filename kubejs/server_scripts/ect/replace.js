@@ -1,9 +1,9 @@
-z/*
+/*
 onEvent('tags.items', e => {
     
     const silvers = e.get('forge:ingots/silver').getObjectIds()
     const bronzes = e.get('forge:ingots/bronze').getObjectIds()
-    const coppers = e.get('forge:ingots/copper').getObjectIds()
+    const coppers = e.get('tfc:metal/ingot/copper').getObjectIds()
     const brasses = e.get('forge:ingots/brass').getObjectIds()
     const irons = e.get('forge:ingots/iron').getObjectIds()
     const zincs = e.get('forge:ingots/zinc').getObjectIds()
@@ -24,8 +24,7 @@ onEvent('tags.items', e => {
         e.remove('forge:ingots/bronze', bronze)
     })
     coppers.forEach(copper => {
-        e.add('tfc:metal/ingot/copper', copper)
-        e.remove('forge:ingots/copper', copper)
+        e.add('forge:ingots/copper', copper)
     })
     brasses.forEach(brass => {
         e.add('tfc:metal/ingot/brass', brass)
@@ -72,7 +71,7 @@ onEvent('tags.items', e => {
     const p_irons = e.get('forge:plates/iron').getObjectIds()
     const p_golds = e.get('forge:plates/gold').getObjectIds()
     const p_brasses = e.get('forge:plates/brass').getObjectIds()
-    const p_coppers = e.get('forge:plates/copper').getObjectIds()
+    const p_coppers = e.get('tfc:metal/plate/copper').getObjectIds()
 
     p_irons.forEach(iron => {
         e.add('tfc:metal/sheet/wrought_iron', iron)
@@ -87,9 +86,9 @@ onEvent('tags.items', e => {
         e.remove('forge:plates/brass', brass)
     })
     p_coppers.forEach(copper => {
-        e.add('tfc:metal/sheet/copper', copper)
-        e.remove('forge:plates/copper', copper)
+        e.add('forge:plates/copper', copper)
     })
+})*/
 
 /*
 for tag,item in replaceTagMap{
@@ -100,39 +99,44 @@ for tag,item in replaceTagMap{
 })
 */
 /*
-onEvent('recipes', e => {
-    for(let i = 0; i<forgePlateMetals.length; i++) {
-        e.replaceInput('#forge:plates/' + forgePlateMetals[i], '#tfc:metal/sheet/' + tfcSheetMetals[i])
-    }
-    for(let i = 0; i<forgeIngotMetals.length; i++) {
-        e.replaceInput('#forge:ingots/' + forgeIngotMetals[i], '#tfc:metal/ingot/' + tfcIngotMetals[i])
-    }
-   
-})*/
 let forgePlateMetals = ['iron', 'gold', 'brass', 'copper']
 let tfcSheetMetals = ['wrought_iron', 'gold', 'brass', 'copper']
+
+
+let forgeIngotMetals = ['silver', 'bronze', 'copper', 'brass', 'iron', 'zinc', 'tin', 'steel', 'gold', 'rose_gold', 'sterling_silver', 'nickel', 'bismuth']
+let tfcIngotMetals = ['silver', 'bronze', 'copper', 'brass', 'iron', 'zinc', 'tin', 'steel', 'gold', 'rose_gold', 'sterling_silver', 'nickel', 'bismuth']
+/*
+onEvent('recipes', e => {
+    for(let i = 0; i<forgePlateMetals.length; i++) {
+        e.replaceInput('#forge:plates/' + forgePlateMetals[i], '#forge:sheets/' + tfcSheetMetals[i])
+    }
+    for(let i = 0; i<forgeIngotMetals.length; i++) {
+        e.replaceInput('#forge:ingots/' + forgeIngotMetals[i], '#forge:/' + tfcIngotMetals[i])
+    }
+   
+})
+*/
+/*
 
 onEvent('tags.items', e => {
     for(let i = 0; i<forgePlateMetals.length; i++) {
         let f = forgePlateMetals[i]
         let t = tfcSheetMetals[i]
-        const m = e.get('tfc:metal/sheet' + t).getObjectIDs()
-        m.forEach(n => {
-            e.add('forge:plates/' + f, n)
-        })
+        e.add('forge:plates/' + f, 'tfc:metal/sheet/' + t)
     }
 })
 
-let forgeIngotMetals = ['silver', 'bronze', 'copper', 'brass', 'iron', 'zinc', 'tin', 'steel', 'gold', 'rose_gold', 'sterling_silver', 'nickel', 'bismuth']
-let tfcIngotMetals = ['silver', 'bronze', 'copper', 'brass', 'iron', 'zinc', 'tin', 'steel', 'gold', 'rose_gold', 'sterling_silver', 'nickel', 'bismuth']
 
 onEvent('tags.items', e => {
     for(let i = 0; i<forgeIngotMetals.length; i++) {
         let f = forgeIngotMetals[i]
         let t = tfcIngotMetals[i]
-        const m = e.get('tfc:metal/ingot' + t).getObjectIDs()
-        m.forEach(n => {
-            e.add('forge:ingots/' + f, n)
-        })
+        e.add('forge:ingots/' + f, 'tfc:metal/ingot/' + t)
     }
+})*/
+
+onEvent('tags.items', e => {
+    e.add('forge:plates/iron', 'tfc:metal/sheet/wrought_iron')
+    e.remove('forge:plates/iron', 'create:iron_sheet')
+    e.remove('forge:plate/iron', 'immersiveengineering:plate_iron')
 })

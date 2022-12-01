@@ -11,7 +11,6 @@ let removes = ['create:copper_casing', 'create:fluid_pipe', 'create:fluid_tank',
 
 onEvent('recipes', e => {
     removes.forEach(remove => {
-        e.remove({output: remove})
         e.remove({id: remove})
     })
 })
