@@ -1,3 +1,5 @@
+//1티어: andesite + bronze
+
 let metals = ['bismuth', 'bismuth_bronze', 'black_bronze', 'black_steel', 'blue_steel', 'brass', 'bronze', 'cast_iron', 'copper', 'gold', 'nickel', 'red_steel', 'rose_gold', 'silver', 'steel', 
 'sterling_silver', 'tin', 'wrought_iron', 'zinc']
 
@@ -9,7 +11,7 @@ onEvent('tags.items', e => {
 
 
 
-let outputs = ['create:andesite_casing', 
+let removes = ['create:andesite_casing', 
         'tfc:andesite_brick', 'create:andesite_alloy', 
         'create:shaft', 
         'minecraft:smithing_table', 
@@ -21,16 +23,15 @@ let outputs = ['create:andesite_casing',
         'create:rope_pulley', 
         'create:mechanical_mixer', 
         'create:mechanical_harvester',
-        'create:propeller', 'create:encased_fan']
-let ids = []
+        'create:propeller', 'create:encased_fan',
+        'create:cogwheel', 'create:large_cogwheel',
+        'create:mechanical_press', 'create:depot', 'create:weighted_ejector',
+        'create:portable_storage_interface']
 
 onEvent('recipes', e => {
-    outputs.forEach(output => {
-        e.remove({output: output})
-    })
-
-    ids.forEach(id => {
-        e.remove({id: id})
+    removes.forEach(remove => {
+        e.remove({output: remove})
+        e.remove({id: remove})
     })
 })
 
@@ -87,6 +88,14 @@ onEvent('recipes', e => {
         W: 'tfc:metal/sheet/wrought_iron',
         A: 'create:andesite_alloy'
     })
+    e.shaped('create:cogwheel', [' L ', 'LSL', ' L '], {
+        L: '#tfc:lumber',
+        S: 'create:shaft'
+    })
+    e.shaped('create:large_cogwheel', ['LLL', 'LSL', 'LLL'], {
+        L: '#tfc:lumber',
+        S: 'create:shaft'
+    })
 
     e.shapeless('4x create:andesite_casing', ['tfc:wattle', '#tfc:lumber', 'create:andesite_alloy'])
 
@@ -104,6 +113,10 @@ onEvent('recipes', e => {
         e.smithing('create:mechanical_harvester', 'create:andesite_casing', i)
     })
     e.smithing('create:encased_fan', 'create:andesite_casing', 'create:propeller')
+    e.smithing('create:mechanical_press', 'create:andesite_casing', '#kubejs:double_sheets')
+    e.smithing('create:depot', 'create:andesite_casing', 'create:andesite_alloy')
+    e.smithing('create:weighted_ejector', 'create:depot', 'create:cogwheel')
+    e.smithing('create:portable_storage_interface', 'create:andesite_casing', 'create:chute')
 
     bronze.forEach(i => {
         tfc_welding('tfc:brick/andesite', i, 0, 'create:andesite_alloy', 16, 'andesite_alloy')
@@ -111,5 +124,5 @@ onEvent('recipes', e => {
     
     tfc_anvil('create:andesite_alloy', 'create:shaft', 6, -1, 'shrink', 'shaft')
     tfc_anvil('tfc:metal/double_sheet/brass', 'create:brass_hand', 1,  -1, 'punch', 'brass_hand')
-    tfc_anvil('#kubejs:double_sheets', 'create:propeller', 1, -1, 'punch', 'propeller')
+    tfc_anvil('tfc:metal/double_sheet/bronze', 'create:propeller', 1, -1, 'punch', 'propeller')
 })
