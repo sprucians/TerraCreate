@@ -19,8 +19,19 @@ onEvent('recipes', e => {
         registerFood(cook_cut, cutFoodData(cook_cut,readFood(cook)))
 
         registerHeat(raw_cut)
+    
+        e.recipes.createSequencedAssembly([ // start the recipe
+            `3x ${raw_cut}`
+        ],raw,[
+            e.recipes.createPressing(raw,raw),
+            e.recipes.createPressing(raw,raw),
+            e.recipes.createCutting(raw,raw).processingTime(50),
+            e.recipes.createDeploying(raw, [raw, '#tfc:knives']),
+        ]).transitionalItem(raw).loops(1)
     })
 })
+
+
 
 onEvent('item.tags', event => {
 	// Get the #forge:cobblestone tag collection and add Diamond Ore to it
