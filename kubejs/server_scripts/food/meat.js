@@ -20,9 +20,7 @@ onEvent('recipes', e => {
 
         registerHeat(raw_cut)
     
-        e.recipes.createSequencedAssembly([ // start the recipe
-            `3x ${raw_cut}`
-        ],raw,[
+        e.recipes.createSequencedAssembly([`3x ${raw_cut}`],raw,[
             e.recipes.createPressing(raw,raw),
             e.recipes.createPressing(raw,raw),
             e.recipes.createCutting(raw,raw).processingTime(50),
@@ -34,11 +32,6 @@ onEvent('recipes', e => {
 
 
 onEvent('item.tags', event => {
-	// Get the #forge:cobblestone tag collection and add Diamond Ore to it
-	// event.get('forge:cobblestone').add('minecraft:diamond_ore')
-
-	// Get the #forge:cobblestone tag collection and remove Mossy Cobblestone from it
-	// event.get('forge:cobblestone').remove('minecraft:mossy_cobblestone')
     meatdb.forEach(m => {
         var [raw,cook,raw_cut,cook_cut] = m
         Item.of(raw).getTags().forEach(t => event.get(t).add(raw_cut))
