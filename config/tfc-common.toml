@@ -21,4 +21,6 @@
 	# Enables a series of network fail-safes that are used to debug network connections between client and servers.
 	# Important: this MUST BE THE SAME as what the server has set, otherwise you are liable to see even stranger errors.
 	enableNetworkDebugging = false
+	#If enabled, TFC will validate that certain pieces of reloadable data fit the conditions we expect, for example heating recipes having heatable items. It will error or warn in the log if these conditions are not met.
+	enableDatapackTests = false
 
