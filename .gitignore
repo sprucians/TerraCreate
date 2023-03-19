@@ -1,11 +1,10 @@
-
-
 !icon.png
 !manifest.json
 !modlist.html
 !README.md
 
 .vscode/
+config/
 coremods/
 crash-reports/
 journeymap/
@@ -36,3 +35,4 @@ usernamecache.json
 imgui.ini
 .curseclient
 minecraftinstance.json
+mods/.index/top-addons.pw.toml
