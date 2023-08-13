@@ -10,7 +10,7 @@ onEvent('recipes', event => {
 		let fluid = recipe.json.asJsonObject.get('result_fluid').get('fluid')
 		let amount = recipe.json.asJsonObject.get('result_fluid').get('amount') * 1
 		let temp = recipe.json.asJsonObject.get('temperature')
-		if (Item.of(item).hasTag('tfc:ore_pieces')) {
+		if (Item.of(item) && Item.of(item).hasTag('tfc:ore_pieces')) {
 			//event.remove(recipe)
 			for (let i in [0,1,2,3]){
 				event.custom({

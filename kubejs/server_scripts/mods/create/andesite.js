@@ -9,9 +9,8 @@ onEvent('tags.items', e => {
     })
 })
 
-
-
-let removes = ['create:andesite_casing', 
+let and_removes = [
+        'create:andesite_casing', 
         'tfc:andesite_brick', 'create:andesite_alloy', 
         'create:shaft', 
         'minecraft:smithing_table', 
@@ -29,7 +28,7 @@ let removes = ['create:andesite_casing',
         'create:portable_storage_interface']
 
 onEvent('recipes', e => {
-    removes.forEach(remove => {
+    and_removes.forEach(remove => {
         e.remove({output: remove})
         e.remove({id: remove})
     })

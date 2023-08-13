@@ -3,10 +3,10 @@ onEvent('tags.items', e => {
 
 
 
-let removes = ['immersiveengineering:ersatz_leather']
+let immersive_removes = ['immersiveengineering:ersatz_leather']
 
 onEvent('recipes', e => {
-    removes.forEach(remove => {
+    immersive_removes.forEach(remove => {
         e.remove({output: remove})
         e.remove({id: remove})
     })

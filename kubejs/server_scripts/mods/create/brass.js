@@ -3,10 +3,10 @@ onEvent('tags.items', e => {
 
 
 
-let removes = []
+let brass_removes = []
 
 onEvent('recipes', e => {
-    removes.forEach(remove => {
+    brass_removes.forEach(remove => {
         e.remove({output: remove})
         e.remove({id: remove})
     })
