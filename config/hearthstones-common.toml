@@ -1,5 +1,0 @@
-#Removes the recipe of Shabby Tavern/Hearthing Planks, and reverts the recipe of Tavern/Hearthstone to much cheaper version. Requires world restart.
-easyMode = false
-traceHearthstoneUsage = false
-traceTavernUpdate = false
-
