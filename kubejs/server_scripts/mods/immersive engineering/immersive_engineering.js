@@ -12,8 +12,3 @@ onEvent('recipes', e => {
     })
 })
 //backpack조합법으로 인해 ersatz_leather 삭제
-
-
-
-onEvent('recipes', e => {
-})

@@ -23,8 +23,7 @@ onEvent('recipes', event => {
 		"results": [
 			Item.of('minecraft:nether_star'),
 			Fluid.of('create_enchantment_industry:experience',10).toJson()
-		],
-		"heatRequirement": "heated"
+		]
 	})
 
 	event.remove({id: 'create_enchantment_industry:mixing/hyper_experience'})

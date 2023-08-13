@@ -8,3 +8,7 @@ onEvent('block.tags', event => {
 	// event.get('forge:cobblestone').remove('minecraft:mossy_cobblestone')
 	event.get('farmersdelight:tray_heat_sources').add('tfc:firepit')
 })
+
+onEvent('tags.items', e => {
+    e.add('tfc:usable_in_powder_keg','kubejs:black_powder');
+})

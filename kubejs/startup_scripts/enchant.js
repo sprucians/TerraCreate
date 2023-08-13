@@ -15,7 +15,7 @@ onEvent('block.registry', event => {
 onEvent("enchantment.registry",event => {
 	event.create('yield')
 		.minLevel(1)
-		.maxLevel(3)
+		.maxLevel(2)
 		.trident()
 		.canEnchant((item) => {
 			if (item.hasTag('tfc:ore_pieces'))
