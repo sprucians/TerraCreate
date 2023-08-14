@@ -9,7 +9,8 @@ onEvent('tags.items', e => {
     })
 })
 
-let and_removes = [
+onEvent('recipes', e => {
+    [
         'create:andesite_casing', 
         'tfc:andesite_brick', 'create:andesite_alloy', 
         'create:shaft', 
@@ -25,10 +26,7 @@ let and_removes = [
         'create:propeller', 'create:encased_fan',
         'create:cogwheel', 'create:large_cogwheel',
         'create:mechanical_press', 'create:depot', 'create:weighted_ejector',
-        'create:portable_storage_interface']
-
-onEvent('recipes', e => {
-    and_removes.forEach(remove => {
+        'create:portable_storage_interface'].forEach(remove => {
         e.remove({output: remove})
         e.remove({id: remove})
     })
