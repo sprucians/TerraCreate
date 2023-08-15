@@ -1,5 +1,4 @@
 onEvent('block.break', e => {
-    console.log("break!@!")
     let tfc_ore = new RegExp('(tfc|tfc_ie_addon|firmalife):ore/(rich|normal|poor).*/')
     if(e.getBlock().toString().match(tfc_ore)){
         if(Math.random()<0.6){
