@@ -10,6 +10,7 @@ crash-reports/
 journeymap/
 logs/
 mods/
+local/
 !mods/index/
 patchouli_books/
 resourcepacks/
